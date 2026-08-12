@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>計算結果</title>
+
+<style>
+    body {
+        font-family: "Meiryo", sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 15px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 12px;
+        margin: 0 auto 10px auto;
+        max-width: 480px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #444;
+        border-left: 4px solid #4CAF50;
+        padding-left: 8px;
+    }
+
+    .result-item {
+        margin-bottom: 6px;
+        font-size: 20px;
+    }
+
+    .back-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: #4CAF50;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        max-width: 480px;
+        margin: 10px auto 0 auto;
+    }
+
+    .back-btn:hover {
+        background: #45a049;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>計算結果</h1>
+
+<div class="card">
+    <div class="section-title">符・翻・役</div>
+    <div class="result-item">符：<span th:text="${ss.fu}"></span></div>
+    <div class="result-item">翻：<span th:text="${ss.han}"></span></div>
+    <div class="result-item">役：<span th:text="${ss.rankName}"></span></div>
+</div>
+
+<div class="card">
+    <div class="section-title">最終点</div>
+    <div class="result-item">合計点：<span th:text="${ss.mainPoint}"></span> 点</div>
+
+    <div th:if="${ss.agarikata == 'ツモ'}">
+        <div class="result-item">親支払い：<span th:text="${ss.parentPay}"></span> 点</div>
+        <div class="result-item">子支払い：<span th:text="${ss.childPay}"></span> 点</div>
+    </div>
+
+    <div th:if="${ss.agarikata != 'ツモ'}">
+        <div class="result-item">ロン支払い：<span th:text="${ss.ronPay}"></span> 点</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">入力内容</div>
+    <div class="result-item">自家：<span th:text="${ss.jicha}"></span></div>
+    <div class="result-item">本場：<span th:text="${ss.honba}"></span></div>
+    <div class="result-item">アガリ：<span th:text="${ss.agari}"></span></div>
+    <div class="result-item">アガリ方：<span th:text="${ss.agarikata}"></span></div>
+    <div class="result-item">待ち：<span th:text="${ss.machi}"></span></div>
+    <div class="result-item">雀頭：<span th:text="${ss.janto}"></span></div>
+</div>
+
+<a class="back-btn" th:href="@{/}">戻る</a>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+2026-08-11 20:12:19.211347+09:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 関数 "MAHJONG_SCORE" が見つかりません
+Function "MAHJONG_SCORE" not found; SQL statement:
+INSERT INTO mahjong_score (fu, han, role, ron_score, tsumo_child, tsumo_parent) VALUES
+(20, 2, 'child', 400, 700, NULL),
+(20, 3, 'child', 700, 1300, NULL),
+(20, 4, 'child', 1300, 2600, NULL),
+
+(25, 2, 'child', 1600, NULL, NULL),
+(25, 3, 'child', 3200, NULL, NULL),
+(25, 4, 'child', 6400, NULL, NULL),
+
+(30, 1, 'child', 1000, 300, 500),
+(30, 2, 'child', 2000, 500, 1000),
+(30, 3, 'child', 3900, 1000, 2000),
+(30, 4, 'child', 7700, 2000, 3900),
+
+(40, 1, 'child', 1300, 400, 700),
+(40, 2, 'child', 2600, 700, 1300),
+(40, 3, 'child', 5200, 1300, 2600),
+
+(50, 1, 'child', 1600, 400, 800),
+(50, 2, 'child', 3200, 800, 1600),
+(50, 3, 'child', 6400, 1600, 3200),
+
+(60, 1, 'child', 2000, 500, 1000),
+(60, 2, 'child', 3900, 1000, 2000),
+(60, 3, 'child', 7700, 2000, 3900),
+
+(70, 1, 'child', 2300, 600, 1200),
+(70, 2, 'child', 4500, 1200, 2300),
+
+(80, 1, 'child', 2600, 700, 1300),
+(80, 2, 'child', 5200, 1300, 2600),MAHJONG_SCORE 
+(80, 3, 'child', 8000, 2000, 4000), 
+
+(90, 1, 'child', 2900, 800, 1500),
+(90, 2, 'child', 5800, 1500, 2900),
+
+(100, 1, 'child', 3200, 800, 1600),
+(100, 2, 'child', 6400, 1600, 3200),
+
+(110, 1, 'child', 3600, 1800, 3600),
+(110, 2, 'child', 7100, 1800, 3600) [90022-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readFunction(Parser.java:3775)
+	at org.h2.command.Parser.readTermWithIdentifier(Parser.java:5158)
+	at org.h2.command.Parser.readTerm(Parser.java:4844)
+	at org.h2.command.Parser.readFactor(Parser.java:3326)
+	at org.h2.command.Parser.readSum(Parser.java:3313)
+	at org.h2.command.Parser.readConcat(Parser.java:3278)
+	at org.h2.command.Parser.readCondition(Parser.java:3068)
+	at org.h2.command.Parser.readExpression(Parser.java:2988)
+	at org.h2.command.Parser.readExpressionOrDefault(Parser.java:2974)
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1692)
+	at org.h2.command.Parser.parseInsert(Parser.java:1553)
+	at org.h2.command.Parser.parsePrepared(Parser.java:701)
+	at org.h2.command.Parser.parse(Parser.java:584)
+	at org.h2.command.Parser.parse(Parser.java:559)
+	at org.h2.command.Parser.prepareCommand(Parser.java:487)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-08-11 20:33:08.044776+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 列 "ROLE" が見つかりません
+Column "ROLE" not found; SQL statement:
+INSERT INTO ko_score (fu, han, role, ron_score, tsumo_child, tsumo_parent) VALUES
+(20, 2, NULL, 400, 700),
+(20, 3, NULL, 700, 1300),
+(20, 4, NULL, 300, 2600),
+
+(25, 2, 1600, NULL, NULL),
+(25, 3, 3200, 800, 1600),
+(25, 4, 6400, 1600, 3200),
+
+(30, 1, 1000, 300, 500),
+(30, 2, 2000, 500, 1000),
+(30, 3, 3900, 1000, 2000),
+(30, 4, 7700, 2000, 3900),
+
+(40, 1, 1300, 400, 700),
+(40, 2, 2600, 700, 1300),
+(40, 3, 5200, 1300, 2600),
+
+(50, 1, 1600, 400, 800),
+(50, 2, 3200, 800, 1600),
+(50, 3, 6400, 1600, 3200),
+
+(60, 1, 2000, 500, 1000),
+(60, 2, 3900, 1000, 2000),
+(60, 3, 7700, 2000, 3900),
+
+(70, 1, 2300, 600, 1200),
+(70, 2, 4500, 1200, 2300),
+
+(80, 1, 2600, 700, 1300),
+(80, 2, 5200, 1300, 2600),
+(80, 3, 8000, 2000, 4000), -- 満貫
+
+(90, 1, 2900, 800, 1500),
+(90, 2, 5800, 1500, 2900),
+
+(100, 1, 3200, 800, 1600),
+(100, 2, 6400, 1600, 3200),
+
+(110, 1, 3600, NULL, NULL),
+(110, 2, 7100, 1800, 3600) [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:778)
+	at org.h2.command.Parser.parseColumn(Parser.java:1174)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1159)
+	at org.h2.command.Parser.parseInsert(Parser.java:1533)
+	at org.h2.command.Parser.parsePrepared(Parser.java:701)
+	at org.h2.command.Parser.parse(Parser.java:584)
+	at org.h2.command.Parser.parse(Parser.java:559)
+	at org.h2.command.Parser.prepareCommand(Parser.java:487)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-08-11 20:36:57.677141+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: 列 "KO_SCORE" が見つかりません
+Column "KO_SCORE" not found; SQL statement:
+INSERT INTO ko_score (fu, han,KO_SCORE  ron_score, tsumo_child, tsumo_parent) VALUES
+(20, 2, NULL, 400, 700),
+(20, 3, NULL, 700, 1300),
+(20, 4, NULL, 300, 2600),
+
+(25, 2, 1600, NULL, NULL),
+(25, 3, 3200, 800, 1600),
+(25, 4, 6400, 1600, 3200),
+
+(30, 1, 1000, 300, 500),
+(30, 2, 2000, 500, 1000),
+(30, 3, 3900, 1000, 2000),
+(30, 4, 7700, 2000, 3900),
+
+(40, 1, 1300, 400, 700),
+(40, 2, 2600, 700, 1300),
+(40, 3, 5200, 1300, 2600),
+
+(50, 1, 1600, 400, 800),
+(50, 2, 3200, 800, 1600),
+(50, 3, 6400, 1600, 3200),
+
+(60, 1, 2000, 500, 1000),
+(60, 2, 3900, 1000, 2000),
+(60, 3, 7700, 2000, 3900),
+
+(70, 1, 2300, 600, 1200),
+(70, 2, 4500, 1200, 2300),
+
+(80, 1, 2600, 700, 1300),
+(80, 2, 5200, 1300, 2600),
+(80, 3, 8000, 2000, 4000), -- 満貫
+
+(90, 1, 2900, 800, 1500),
+(90, 2, 5800, 1500, 2900),
+
+(100, 1, 3200, 800, 1600),
+(100, 2, 6400, 1600, 3200),
+
+(110, 1, 3600, NULL, NULL),
+(110, 2, 7100, 1800, 3600) [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:778)
+	at org.h2.command.Parser.parseColumn(Parser.java:1174)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1159)
+	at org.h2.command.Parser.parseInsert(Parser.java:1533)
+	at org.h2.command.Parser.parsePrepared(Parser.java:701)
+	at org.h2.command.Parser.parse(Parser.java:584)
+	at org.h2.command.Parser.parse(Parser.java:559)
+	at org.h2.command.Parser.prepareCommand(Parser.java:487)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-08-11 20:45:08.650883+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "([*]110, 1, 5300, NULL),\000d\000a(110, 2, 10600, 3600)"; 期待されるステートメント "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]110, 1, 5300, NULL),\000d\000a(110, 2, 10600, 3600)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(110, 1, 5300, NULL),
+(110, 2, 10600, 3600) [42001-240]
+2026-08-11 20:45:10.846141+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MAHJONG_SCORE" が見つかりません
+Table "MAHJONG_SCORE" not found; SQL statement:
+INSERT INTO mahjong_score (fu, han, ron_score, tsumo_child) VALUES
+(20, 2, NULL, 700),
+(20, 3, NULL, 1300),
+(20, 4, NULL, 2600),
+
+(25, 2, 2400,NULL),
+(25, 3, 4800,1600),
+(25, 4, 9600,3200),
+
+(30, 1, 1500, 500),
+(30, 2, 2900, 1000),
+(30, 3, 5800, 2000),
+(30, 4, 11600, 3900),
+
+(40, 1, 2000, 700),
+(40, 2, 3900, 1300),
+(40, 3, 7700, 2600),
+
+(50, 1, 2400, 800),
+(50, 2, 4800, 1600),
+(50, 3, 9600, 3200),
+
+(60, 1, 2900, 1000),
+(60, 2, 5800, 2000),
+(60, 3, 11600, 3900),
+
+(70, 1, 3400, 1200),
+(70, 2, 6800, 2300),
+
+(80, 1, 3900, 1300),
+(80, 2, 7700, 2600),
+(80, 3, 12000, 4000), -- 満貫
+
+(90, 1, 4400, 1500),
+(90, 2, 8700, 2900),
+
+(100, 1, 4800, 1600),
+(100, 2, 9600, 3200),
+
+(110, 1, 5300, NULL),
+(110, 2, 10600, 3600) [42102-240]
+2026-08-11 20:48:25.203979+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "CREATE TABLE oya_score (\000d\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000d\000a    fu INT NOT NULL,\000d\000a    han INT NOT NULL,\000d\000a    ron_score INT NOT NULL,\000d\000a    tsumo_child INT,           -- 子からの支払い\000d\000a[*])"; 期待されるステートメント "identifier"
+Syntax error in SQL statement "CREATE TABLE oya_score (\000d\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000d\000a    fu INT NOT NULL,\000d\000a    han INT NOT NULL,\000d\000a    ron_score INT NOT NULL,\000d\000a    tsumo_child INT,           -- 子からの支払い\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE oya_score (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fu INT NOT NULL,
+    han INT NOT NULL,
+    ron_score INT NOT NULL,
+    tsumo_child INT,           -- 子からの支払い
+) [42001-240]
+2026-08-11 20:49:09.992967+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "[*]OYA_SCORE"
+Syntax error in SQL statement "[*]OYA_SCORE"; SQL statement:
+OYA_SCORE [42000-240]
+2026-08-11 20:56:47.507456+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MAHJONG_LIMIT_HAND" が見つかりません
+Table "MAHJONG_LIMIT_HAND" not found; SQL statement:
+INSERT INTO mahjong_limit_hand
+(name, child_ron, child_tsumo_child, child_tsumo_parent, parent_ron, parent_tsumo_child)
+VALUES
+('満貫', 8000, 2000, 4000, 12000, 4000),
+('跳満', 12000, 3000, 6000, 18000, 6000),
+('倍満', 16000, 4000, 8000, 24000, 8000),
+('三倍満', 24000, 6000, 12000, 36000, 12000),
+('役満', 32000, 8000, 16000, 48000, 16000) [42102-240]
+2026-08-11 20:57:51.021648+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT [*]limit_SCORE\000d\000a(name, child_ron, child_tsumo_child, child_tsumo_parent, parent_ron, parent_tsumo_child)\000d\000aVALUES\000d\000a('満貫', 8000, 2000, 4000, 12000, 4000),\000d\000a('跳満', 12000, 3000, 6000, 18000, 6000),\000d\000a('倍満', 16000, 4000, 8000, 24000, 8000),\000d\000a('三倍満', 24000, 6000, 12000, 36000, 12000),\000d\000a('役満', 32000, 8000, 16000, 48000, 16000)"; 期待されるステートメント "INTO"
+Syntax error in SQL statement "INSERT [*]limit_SCORE\000d\000a(name, child_ron, child_tsumo_child, child_tsumo_parent, parent_ron, parent_tsumo_child)\000d\000aVALUES\000d\000a('満貫', 8000, 2000, 4000, 12000, 4000),\000d\000a('跳満', 12000, 3000, 6000, 18000, 6000),\000d\000a('倍満', 16000, 4000, 8000, 24000, 8000),\000d\000a('三倍満', 24000, 6000, 12000, 36000, 12000),\000d\000a('役満', 32000, 8000, 16000, 48000, 16000)"; expected "INTO"; SQL statement:
+INSERT limit_SCORE
+(name, child_ron, child_tsumo_child, child_tsumo_parent, parent_ron, parent_tsumo_child)
+VALUES
+('満貫', 8000, 2000, 4000, 12000, 4000),
+('跳満', 12000, 3000, 6000, 18000, 6000),
+('倍満', 16000, 4000, 8000, 24000, 8000),
+('三倍満', 24000, 6000, 12000, 36000, 12000),
+('役満', 32000, 8000, 16000, 48000, 16000) [42001-240]
