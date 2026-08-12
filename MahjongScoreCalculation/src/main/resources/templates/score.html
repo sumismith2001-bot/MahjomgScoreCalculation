@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>計算結果</title>
 
 <style>
@@ -27,6 +28,17 @@
         border-radius: 10px;
         box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
+	
+	@media screen and (max-width: 768px) {
+	    .card {
+	        max-width: 100%;   /* スマホでは画面幅いっぱい */
+	        padding: 8px;
+	    }
+	    h1 {
+	        font-size: 22px;   /* タイトル文字を少し小さく */
+	    }
+	}
+
 
     .section-title {
         font-size: 20px;
