@@ -2,12 +2,12 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
+# ★ mvnw に実行権限を付与（必須）
+RUN chmod +x mvnw
+
 COPY . .
 RUN ./mvnw clean package -DskipTests
 
-
-# ★ mvnw に実行権限を付与（必須）
-RUN chmod +x mvnw
 
 # Run Stage
 FROM eclipse-temurin:17-jre
