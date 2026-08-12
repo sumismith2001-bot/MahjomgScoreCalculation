@@ -3,34 +3,34 @@ DROP TABLE IF EXISTS KO_SCORE;
 DROP TABLE IF EXISTS LIMIT_SCORE;
 
 
-CREATE TABLE OYA_SCORE (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS oya_score (
+    id BIGSERIAL PRIMARY KEY,
     fu INT NOT NULL,
     han INT NOT NULL,
-    ron INT ,
-    tsumo_child INT 
+    ron INT,
+    tsumo_child INT
 );
 
-CREATE TABLE KO_SCORE (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS ko_score (
+    id BIGSERIAL PRIMARY KEY,
     fu INT NOT NULL,
     han INT NOT NULL,
-    ron INT ,
-    tsumo_child INT ,
-    tsumo_parent INT 
+    ron INT,
+    tsumo_child INT,
+    tsumo_parent INT
 );
 
-CREATE TABLE LIMIT_SCORE (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS limit_score (
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(20) NOT NULL,
-    child_ron INT ,
-    child_tsumo_child INT ,
-    child_tsumo_parent INT ,
-    parent_ron INT ,
-    parent_tsumo_child INT 
+    child_ron INT,
+    child_tsumo_child INT,
+    child_tsumo_parent INT,
+    parent_ron INT,
+    parent_tsumo_child INT
 );
 
-INSERT INTO KO_SCORE (fu, han, ron, tsumo_child, tsumo_parent) VALUES
+INSERT INTO ko_score (fu, han, ron, tsumo_child, tsumo_parent) VALUES
 (20, 2, NULL, 400, 700),
 (20, 3, NULL, 700, 1300),
 (20, 4, NULL, 300, 2600),
@@ -77,9 +77,9 @@ INSERT INTO oya_score (fu, han, ron, tsumo_child) VALUES
 (20, 3, NULL, 1300),
 (20, 4, NULL, 2600),
 
-(25, 2, 2400,NULL),
-(25, 3, 4800,1600),
-(25, 4, 9600,3200),
+(25, 2, 2400, NULL),
+(25, 3, 4800, 1600),
+(25, 4, 9600, 3200),
 
 (30, 1, 1500, 500),
 (30, 2, 2900, 1000),
@@ -122,4 +122,3 @@ VALUES
 ('倍満', 16000, 4000, 8000, 24000, 8000),
 ('三倍満', 24000, 6000, 12000, 36000, 12000),
 ('役満', 32000, 8000, 16000, 48000, 16000);
-
