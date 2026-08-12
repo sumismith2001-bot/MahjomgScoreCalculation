@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>麻雀 点数入力</title>
 
@@ -27,6 +28,17 @@
         border-radius: 10px;
         box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
+	
+	@media screen and (max-width: 768px) {
+	    .card {
+	        max-width: 100%;   /* スマホでは画面幅いっぱい */
+	        padding: 8px;
+	    }
+	    h1 {
+	        font-size: 22px;   /* タイトル文字を少し小さく */
+	    }
+	}
+
 
     .section-title {
         font-size: 15px;
@@ -58,6 +70,13 @@
 	    border-left: 4px solid #4CAF50;
 	    padding-left: 8px;
 	}
+	
+	@media screen and (min-width: 768px) {
+	    input[type="number"] {
+	        max-width: 80px;   /* PC幅のときだけ制限 */
+	    }
+	}
+
 
     .submit-btn {
         display: block;
